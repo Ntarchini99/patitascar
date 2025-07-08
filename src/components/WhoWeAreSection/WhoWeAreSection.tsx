@@ -1,8 +1,7 @@
-import { Button } from "../ui/button";
 
 const WhoWeAreSection = () => {
   return (
-    <section className="w-full bg-[#f0bebe] py-16 px-4 sm:px-6 md:px-8 lg:px-32">
+    <section className="w-full bg-[#f0bebe] py-16 px-4 sm:px-6 md:px-8 lg:px-32" id="nosotros">
       {/* Contenido */}
       <div className="flex flex-col lg:flex-row gap-8 items-center">
 
@@ -25,11 +24,17 @@ const WhoWeAreSection = () => {
 
           {/* Botón */}
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-center sm:justify-start ">
-            <Button className="w-full sm:w-auto lg:w-[175px] h-12 lg:h-[53px] bg-[#5bb897] rounded-sm hover:bg-[#4a9d7e] transition-colors">
+            <a
+              href="https://wa.me/5491123218193"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto lg:w-[175px] h-12 lg:h-[53px] bg-[#5bb897] rounded-sm hover:bg-[#4a9d7e] transition-colors flex items-center justify-center cursor-pointer"
+            >
               <span className="[font-family:'Roboto',Helvetica] font-medium text-[#050007] text-base lg:text-[17px] text-center tracking-[0] leading-[26px]">
                 Contactanos hoy
               </span>
-            </Button>
+            </a>
+
           </div>
         </div>
 

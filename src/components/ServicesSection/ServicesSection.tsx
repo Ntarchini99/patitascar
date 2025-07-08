@@ -2,7 +2,7 @@ const serviceFeatures = [
     {
         title: "Transporte local y larga distancia",
         description:
-            "Realizamos translados a veterinarias, exposiciones, mudanzas, aeropuertos.",
+            "Realizamos traslados a veterinarias, exposiciones, mudanzas, aeropuertos.",
         iconSrc: "https://i.postimg.cc/GmLfDvHt/location-1.png",
         iconAlt: "Location",
     },
@@ -30,7 +30,7 @@ const serviceFeatures = [
 
 const ServicesSection = () => {
     return (
-        <section className="w-full bg-[#f0bebe] py-16 px-4 lg:px-32">
+        <section className="w-full bg-[#f0bebe] py-16 px-4 lg:px-32" id="servicios">
             <h2 className="[font-family:'Schoolbell',Helvetica] text-3xl text-center lg:text-left text-[#091133] mb-12">
                 Nuestros servicios
             </h2>

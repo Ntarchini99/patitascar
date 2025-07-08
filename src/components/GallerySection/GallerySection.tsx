@@ -137,7 +137,7 @@ const GallerySection = () => {
     };
 
     return (
-        <section className="w-full bg-[#f0bebe] py-8 md:py-16 px-4 flex flex-col items-center relative">
+        <section className="w-full bg-[#f0bebe] py-8 md:py-16 px-4 flex flex-col items-center relative" id="galeria">
             <h2 className="[font-family:'Schoolbell',Helvetica] text-2xl md:text-4xl text-center mb-6 md:mb-8">
                 Galería de aventuras
             </h2>
