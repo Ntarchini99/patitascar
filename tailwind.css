@@ -1,0 +1,147 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  --body-base-font-family: "Inter", Helvetica;
+  --body-base-font-size: 16px;
+  --body-base-font-style: normal;
+  --body-base-font-weight: 400;
+  --body-base-letter-spacing: 0px;
+  --body-base-line-height: 140%;
+  --colourmainblue-900: rgba(9, 17, 51, 1);
+  --colourmaingrey-600: rgba(93, 105, 112, 1);
+  --complemento: rgba(198, 254, 218, 1);
+  --medium-36-font-family: "Roboto", Helvetica;
+  --medium-36-font-size: 36px;
+  --medium-36-font-style: normal;
+  --medium-36-font-weight: 500;
+  --medium-36-letter-spacing: 0px;
+  --medium-36-line-height: 48px;
+  --primario: rgba(91, 184, 151, 1);
+  --regular-16-font-family: "Roboto", Helvetica;
+  --regular-16-font-size: 16px;
+  --regular-16-font-style: normal;
+  --regular-16-font-weight: 400;
+  --regular-16-letter-spacing: 0px;
+  --regular-16-line-height: 26px;
+  --secundario: rgba(240, 190, 190, 1);
+  --single-line-body-base-font-family: "Inter", Helvetica;
+  --single-line-body-base-font-size: 16px;
+  --single-line-body-base-font-style: normal;
+  --single-line-body-base-font-weight: 400;
+  --single-line-body-base-letter-spacing: 0px;
+  --single-line-body-base-line-height: 100%;
+  --texto: rgba(9, 17, 51, 1);
+  --titulo-font-family: "Schoolbell", Helvetica;
+  --titulo-font-size: 60px;
+  --titulo-font-style: normal;
+  --titulo-font-weight: 400;
+  --titulo-letter-spacing: 1px;
+  --titulo-line-height: 66%;
+  --traslados-de-mascotas-com-ar-inter-regular-font-family: "Inter", Helvetica;
+  --traslados-de-mascotas-com-ar-inter-regular-font-size: 9.796875px;
+  --traslados-de-mascotas-com-ar-inter-regular-font-style: normal;
+  --traslados-de-mascotas-com-ar-inter-regular-font-weight: 400;
+  --traslados-de-mascotas-com-ar-inter-regular-letter-spacing: 0px;
+  --traslados-de-mascotas-com-ar-inter-regular-line-height: 16.5px;
+  --traslados-de-mascotas-com-ar-roboto-regular-font-family: "Roboto", Helvetica;
+  --traslados-de-mascotas-com-ar-roboto-regular-font-size: 14px;
+  --traslados-de-mascotas-com-ar-roboto-regular-font-style: normal;
+  --traslados-de-mascotas-com-ar-roboto-regular-font-weight: 400;
+  --traslados-de-mascotas-com-ar-roboto-regular-letter-spacing: 0px;
+  --traslados-de-mascotas-com-ar-roboto-regular-line-height: 26px;
+  --traslados-de-mascotascomarmountain-meadow: rgba(37, 211, 102, 1);
+  --traslados-de-mascotascomarscorpion: rgba(96, 96, 96, 1);
+  --traslados-de-mascotascomarsurfie-green: rgba(18, 140, 126, 1);
+  --traslados-de-mascotascomartundora: rgba(74, 74, 74, 1);
+  --traslados-de-mascotascomarwhite: rgba(255, 255, 255, 1);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --card: transparent;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: transparent;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
