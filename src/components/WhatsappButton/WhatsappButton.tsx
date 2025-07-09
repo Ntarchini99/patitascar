@@ -4,9 +4,8 @@ const WhatsAppFloatingButton: React.FC = () => {
     const [isHovered, setIsHovered] = useState(false);
 
     const handleWhatsAppClick = (): void => {
-        const phoneNumber = "541123218193";
         const message = "¡Hola! Me interesa conocer más sobre los servicios de Patitas Car 🐾";
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        const whatsappUrl = `https://wa.me/${5491123218193}?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
     };
 

@@ -19,8 +19,7 @@ const Footer = () => {
         </div>
 
         {/* Redes y Teléfono */}
-        {/* Redes y Teléfono */}
-        <div className="flex flex-col items-center gap-2 sm:flex-row sm:gap-6">
+        <div className="flex flex-row items-center gap-6">
           {/* Redes */}
           <div className="flex space-x-4">
             <a
@@ -54,9 +53,8 @@ const Footer = () => {
           </a>
         </div>
 
-
-        {/* Logo */}
-        <div className="flex justify-center sm:justify-end">
+        {/* Logo (oculto en móvil) */}
+        <div className="hidden sm:flex justify-center sm:justify-end">
           <img
             src="https://i.postimg.cc/d3WbwxPp/Dise-o-sin-t-tulo-removebg-preview.png"
             alt="Logo Patitas Car"
