@@ -36,7 +36,7 @@ const galleryCards: GalleryCard[] = [
         pet: { name: "Scarlet", age: "1 año", trip: "Mudanza", location: "Garín, Bs As" },
     },
     {
-        src: "https://i.postimg.cc/vZpkWY34/IMG-20250620-WA0004.jpg",
+        src: "https://i.postimg.cc/fLt018pT/perrito.jpg",
         alt: "Frame",
         pet: { name: "Milo", age: "2 años", trip: "Aventura en la playa", location: "Mar del Plata" },
     },
@@ -61,7 +61,7 @@ const galleryCards: GalleryCard[] = [
         pet: { name: "Rocky", age: "4 años", trip: "Paseo en bote", location: "Tandil" },
     },
     {
-        src: "https://i.postimg.cc/W3pnZxLD/Imagen-de-Whats-App-2025-07-07-a-las-20-50-43-33a4013e.jpg",
+        src: "https://i.postimg.cc/BvwKhrhV/caniche.jpg",
         alt: "Frame",
         pet: { name: "Lola", age: "3 años", trip: "Visita al lago", location: "Bariloche" },
     },
@@ -93,7 +93,7 @@ const GallerySection = () => {
     useEffect(() => {
         const updateLayout = () => {
             const screenWidth = window.innerWidth;
-            
+
             if (screenWidth < 640) { // sm
                 setVisibleCards(1);
                 setCardWidth(280);
@@ -159,7 +159,7 @@ const GallerySection = () => {
                     <div
                         ref={carouselRef}
                         className="flex overflow-x-auto gap-4 md:gap-6 scroll-smooth scrollbar-hide snap-x snap-mandatory pb-2"
-                        style={{ 
+                        style={{
                             width: showArrows ? containerWidth : '100%',
                             maxWidth: '100%'
                         }}
@@ -168,20 +168,21 @@ const GallerySection = () => {
                             <Card
                                 key={i}
                                 className="flex-shrink-0 snap-start bg-white border-4 border-[#f0bebe] shadow-md overflow-hidden"
-                                style={{ 
-                                    width: cardWidth, 
-                                    height: 'auto',
+                                style={{
+                                    width: cardWidth,
+                                    height: 300, 
                                     minWidth: cardWidth
                                 }}
                             >
-                                <CardContent className="p-0 w-full">
+                                <CardContent className="p-0 w-full h-full">
                                     <img
                                         src={card.src}
                                         alt={card.alt}
-                                        className="w-full h-64 md:h-80 object-cover"
+                                        className="w-full h-full object-cover"
                                     />
                                 </CardContent>
                             </Card>
+
                         ))}
                     </div>
                 </div>

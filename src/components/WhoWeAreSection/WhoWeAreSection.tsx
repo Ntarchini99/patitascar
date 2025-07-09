@@ -12,15 +12,16 @@ const WhoWeAreSection = () => {
               Quiénes somos
             </h2>
           </div>
-          <p className="[font-family:'Roboto',Helvetica] text-[#050007] text-base sm:text-lg lg:text-xl leading-relaxed">
-            Nuestros amados gatitos África, Roberto y Vitto nos regalan ese cariño incondicional latiendo en cada ronroneo y en cada gesto, llenandonos el alma de amor y ternura.
+          <p className="[font-family:'Roboto',Helvetica] text-[#050007] text-[18px] sm:text-[20px] lg:text-[24px] leading-relaxed">
+            Nuestras mascotas África, Roberto y Vitto no son solo nuestros gatitos. Son parte de nuestra familia, nuestros compañeros de vida, y la fuente diaria de un amor que no se explica, se siente. Sus ronroneos, miradas y gestos cargados de ternura nos inspiran a darles siempre lo mejor.
           </p>
-          <p className="[font-family:'Roboto',Helvetica] text-[#050007] text-base sm:text-lg lg:text-xl leading-relaxed">
-            De ese grandioso sentimiento y el disfrutar de nuestros viajes nació Patitas Car, el transporte de mascotas pensado por y para ellos.
+          <p className="[font-family:'Roboto',Helvetica] text-[#050007] text-[18px] sm:text-[20px] lg:text-[24px] leading-relaxed">
+            De ese amor profundo nació Patitas Car, el servicio de transporte especializado en mascotas, pensado para quienes entienden que cada patita merece respeto, cuidado y confort.
           </p>
-          <p className="[font-family:'Roboto',Helvetica] text-[#050007] text-base sm:text-lg lg:text-xl leading-relaxed">
-            Porque son parte de tu familia, dales lo que realmente se merecen.
+          <p className="[font-family:'Roboto',Helvetica] text-[#050007] text-[18px] sm:text-[20px] lg:text-[24px] leading-relaxed">
+            En Patitas Car, no solo llevamos animales de un punto a otro. Llevamos historias, afectos, latidos. Porque tu mascota es única, y su viaje también debe serlo.
           </p>
+
 
           {/* Botón */}
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-center sm:justify-start ">
@@ -28,12 +29,13 @@ const WhoWeAreSection = () => {
               href="https://wa.me/5491123218193"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto lg:w-[175px] h-12 lg:h-[53px] bg-[#5bb897] rounded-sm hover:bg-[#4a9d7e] transition-colors flex items-center justify-center cursor-pointer"
+              className="w-[220px] sm:w-[220px] md:w-[170px] lg:w-[175px] h-12 lg:h-[53px] bg-[#5bb897] rounded-sm hover:bg-[#4a9d7e] transition-colors flex items-center justify-center cursor-pointer"
             >
               <span className="[font-family:'Roboto',Helvetica] font-medium text-[#050007] text-base lg:text-[17px] text-center tracking-[0] leading-[26px]">
                 Contactanos hoy
               </span>
             </a>
+
 
           </div>
         </div>
