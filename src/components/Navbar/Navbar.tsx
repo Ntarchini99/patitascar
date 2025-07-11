@@ -27,7 +27,6 @@ const Navbar = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            // Si scrolleamos más de 50px, activamos el fondo
             if (window.scrollY > 50) {
                 setScrolled(true);
             } else {
@@ -37,7 +36,6 @@ const Navbar = () => {
 
         window.addEventListener('scroll', handleScroll);
 
-        // Cleanup
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
@@ -51,7 +49,6 @@ const Navbar = () => {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
-                    {/* Logo */}
                     <div className="flex items-center">
                         <a
                             href="#inicio"
@@ -64,8 +61,6 @@ const Navbar = () => {
                             </span>
                         </a>
                     </div>
-
-                    {/* Desktop Menu */}
                     <div className="hidden md:block">
                         <div className="ml-10 flex items-baseline space-x-8">
                             {[
@@ -80,8 +75,8 @@ const Navbar = () => {
                                     href={`#${item.id}`}
                                     onClick={(e) => handleSmoothScroll(e, item.id)}
                                     className={`${item.highlight
-                                            ? 'bg-[#5bb897] text-white px-4 py-2 rounded-md'
-                                            : 'text-white hover:text-[#5bb897] px-3 py-2'
+                                        ? 'bg-[#5bb897] text-white px-4 py-2 rounded-md'
+                                        : 'text-white hover:text-[#5bb897] px-3 py-2'
                                         } text-sm font-medium transition-colors duration-200 cursor-pointer`}
                                 >
                                     {item.label}
@@ -89,8 +84,6 @@ const Navbar = () => {
                             ))}
                         </div>
                     </div>
-
-                    {/* Mobile Menu Button */}
                     <div className="md:hidden">
                         <button
                             onClick={toggleMenu}
@@ -101,8 +94,6 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-
-            {/* Mobile Menu */}
             <div
                 className={`md:hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                     } overflow-hidden`}
@@ -120,8 +111,8 @@ const Navbar = () => {
                             href={`#${item.id}`}
                             onClick={(e) => handleSmoothScroll(e, item.id)}
                             className={`${item.highlight
-                                    ? 'bg-[#5bb897] text-white block px-3 py-2 rounded-md mx-3 my-2'
-                                    : 'text-white block px-3 py-2'
+                                ? 'bg-[#5bb897] text-white block px-3 py-2 rounded-md mx-3 my-2'
+                                : 'text-white block px-3 py-2'
                                 } text-base font-medium transition-colors duration-200 cursor-pointer`}
                         >
                             {item.label}

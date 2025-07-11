@@ -14,14 +14,14 @@ import WhatsAppFloatingButton from "./components/WhatsappButton/WhatsappButton";
 
 createRoot(document.getElementById("app") as HTMLElement).render(
   <StrictMode>
-     <Navbar />
+    <Navbar />
     <HeroSection />
     <WhoWeAreSection />
     <FeaturesSection />
     <ServicesSection />
     <GallerySection />
-    <ContactSection />  
+    <ContactSection />
     <WhatsAppFloatingButton />
-    <Footer />     
+    <Footer />
   </StrictMode>,
 );

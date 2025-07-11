@@ -10,7 +10,7 @@ const WhatsAppFloatingButton: React.FC = () => {
     };
 
     return (
-        <div className="fixed bottom-6 right-4 sm:right-10 z-50"> {/* Responsive right */}
+        <div className="fixed bottom-6 right-4 sm:right-10 z-50">
             <button
                 onClick={handleWhatsAppClick}
                 onMouseEnter={() => setIsHovered(true)}

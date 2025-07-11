@@ -2,16 +2,16 @@ import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Card } from "../ui/card";
 import { useForm, ValidationError } from "@formspree/react";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Swal from "sweetalert2";
 
 const ContactSection = () => {
-  // Poner tu ID de Formspree aquí:
   const [state, handleSubmit] = useForm("xnnvkozl");
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     if (state.succeeded) {
-      // Mostrar SweetAlert
       Swal.fire({
         icon: 'success',
         title: '¡Mensaje enviado!',
@@ -19,7 +19,6 @@ const ContactSection = () => {
         confirmButtonText: 'OK',
         confirmButtonColor: '#5BB897'
       }).then(() => {
-        // Reset del formulario después de cerrar el alert
         const form = document.getElementById('contact-form');
         if (form && form instanceof HTMLFormElement) {
           form.reset();
@@ -28,10 +27,48 @@ const ContactSection = () => {
     }
   }, [state.succeeded]);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px'
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section className="w-full bg-[#f0bebe] py-16 px-4" id="contacto">
+    <section 
+      ref={sectionRef}
+      className={`w-full bg-[#f0bebe] py-16 px-4 transition-all duration-1000 ease-out ${
+        isVisible 
+          ? 'opacity-100 translate-y-0' 
+          : 'opacity-0 translate-y-8'
+      }`} 
+      id="contacto"
+    >
       <div className="max-w-[1000px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <div className="space-y-6">
+        <div 
+          className={`space-y-6 transition-all duration-1000 ease-out delay-200 ${
+            isVisible 
+              ? 'opacity-100 translate-x-0' 
+              : 'opacity-0 -translate-x-8'
+          }`}
+        >
           <h2 className="text-3xl font-bold">Contáctenos</h2>
           <p>Comuníquese con nosotros para programar un traslado o realizar consultas.</p>
           <img
@@ -41,7 +78,13 @@ const ContactSection = () => {
           />
         </div>
 
-        <Card className="bg-white p-6 border-4 border-[#091133]">
+        <Card 
+          className={`bg-white p-6 border-4 border-[#091133] transition-all duration-1000 ease-out delay-400 ${
+            isVisible 
+              ? 'opacity-100 translate-x-0' 
+              : 'opacity-0 translate-x-8'
+          }`}
+        >
           <form id="contact-form" className="space-y-4" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="name" className="block text-sm mb-1">Nombre y apellido</label>

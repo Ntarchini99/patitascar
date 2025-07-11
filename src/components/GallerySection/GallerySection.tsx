@@ -1,5 +1,4 @@
 import { useRef, useState, useEffect } from "react";
-import { Card, CardContent } from "../../components/ui/card";
 
 type Pet = {
     name: string;
@@ -86,31 +85,59 @@ const RightArrowIcon = () => (
 
 const GallerySection = () => {
     const carouselRef = useRef<HTMLDivElement | null>(null);
+    const sectionRef = useRef<HTMLDivElement | null>(null);
     const [visibleCards, setVisibleCards] = useState(6);
     const [cardWidth, setCardWidth] = useState(220);
     const [showArrows, setShowArrows] = useState(true);
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                } else {
+                    setIsVisible(false);
+                }
+            },
+            {
+                threshold: 0.1,
+                rootMargin: '50px 0px -50px 0px'
+            }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => {
+            if (sectionRef.current) {
+                observer.unobserve(sectionRef.current);
+            }
+        };
+    }, []);
 
     useEffect(() => {
         const updateLayout = () => {
             const screenWidth = window.innerWidth;
 
-            if (screenWidth < 640) { // sm
+            if (screenWidth < 640) {
                 setVisibleCards(1);
                 setCardWidth(280);
                 setShowArrows(false);
-            } else if (screenWidth < 768) { // md
+            } else if (screenWidth < 768) {
                 setVisibleCards(2);
                 setCardWidth(200);
                 setShowArrows(true);
-            } else if (screenWidth < 1024) { // lg
+            } else if (screenWidth < 1024) {
                 setVisibleCards(3);
                 setCardWidth(200);
                 setShowArrows(true);
-            } else if (screenWidth < 1280) { // xl
+            } else if (screenWidth < 1280) {
                 setVisibleCards(4);
                 setCardWidth(200);
                 setShowArrows(true);
-            } else { // 2xl
+            } else {
                 setVisibleCards(6);
                 setCardWidth(220);
                 setShowArrows(true);
@@ -137,24 +164,38 @@ const GallerySection = () => {
     };
 
     return (
-        <section className="w-full bg-[#f0bebe] py-8 md:py-16 px-4 flex flex-col items-center relative" id="galeria">
-            <h2 className="[font-family:'Schoolbell',Helvetica] text-2xl md:text-4xl text-center mb-6 md:mb-8">
+        <section 
+            ref={sectionRef}
+            className="w-full bg-[#f0bebe] py-8 md:py-16 px-4 flex flex-col items-center relative" 
+            id="galeria"
+        >
+            <h2 className={`[font-family:'Schoolbell',Helvetica] text-2xl md:text-4xl text-center mb-6 md:mb-8 transition-all duration-1000 ease-out ${
+                isVisible 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-8'
+            }`}>
                 Galería de aventuras
             </h2>
 
-            <div className="flex items-center w-full max-w-7xl">
-                {/* Flecha izquierda */}
+            <div className={`flex items-center w-full max-w-7xl transition-all duration-1000 ease-out delay-200 ${
+                isVisible 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-8'
+            }`}>
                 {showArrows && (
                     <button
                         onClick={scrollLeft}
                         aria-label="Scroll izquierda"
-                        className="flex p-2 bg-white rounded-full shadow-md hover:bg-gray-100 mr-2 md:mr-4 flex-shrink-0"
+                        className={`flex p-2 bg-white rounded-full shadow-md hover:bg-gray-100 mr-2 md:mr-4 flex-shrink-0 transition-all duration-1000 ease-out delay-300 ${
+                            isVisible 
+                                ? 'opacity-100 -translate-x-0 scale-100' 
+                                : 'opacity-0 -translate-x-4 scale-95'
+                        }`}
                     >
                         <LeftArrowIcon />
                     </button>
                 )}
 
-                {/* Carrusel */}
                 <div className="w-full overflow-hidden">
                     <div
                         ref={carouselRef}
@@ -165,43 +206,51 @@ const GallerySection = () => {
                         }}
                     >
                         {galleryCards.map((card, i) => (
-                            <Card
+                            <div
                                 key={i}
-                                className="flex-shrink-0 snap-start bg-white border-4 border-[#f0bebe] shadow-md overflow-hidden"
+                                className={`flex-shrink-0 snap-start bg-white border-4 border-[#f0bebe] shadow-md overflow-hidden rounded-lg transition-all duration-1000 ease-out ${
+                                    isVisible 
+                                        ? 'opacity-100 translate-y-0 scale-100' 
+                                        : 'opacity-0 translate-y-8 scale-95'
+                                }`}
                                 style={{
                                     width: cardWidth,
-                                    height: 300, 
-                                    minWidth: cardWidth
+                                    height: 300,
+                                    minWidth: cardWidth,
+                                    transitionDelay: `${400 + (i * 100)}ms`
                                 }}
                             >
-                                <CardContent className="p-0 w-full h-full">
+                                <div className="p-0 w-full h-full">
                                     <img
                                         src={card.src}
                                         alt={card.alt}
                                         className="w-full h-full object-cover"
                                     />
-                                </CardContent>
-                            </Card>
-
+                                </div>
+                            </div>
                         ))}
                     </div>
                 </div>
-
-                {/* Flecha derecha */}
                 {showArrows && (
                     <button
                         onClick={scrollRight}
                         aria-label="Scroll derecha"
-                        className="flex p-2 bg-white rounded-full shadow-md hover:bg-gray-100 ml-2 md:ml-4 flex-shrink-0"
+                        className={`flex p-2 bg-white rounded-full shadow-md hover:bg-gray-100 ml-2 md:ml-4 flex-shrink-0 transition-all duration-1000 ease-out delay-300 ${
+                            isVisible 
+                                ? 'opacity-100 translate-x-0 scale-100' 
+                                : 'opacity-0 translate-x-4 scale-95'
+                        }`}
                     >
                         <RightArrowIcon />
                     </button>
                 )}
             </div>
-
-            {/* Indicador de scroll en móvil */}
             {!showArrows && (
-                <div className="mt-4 text-center text-sm text-gray-600">
+                <div className={`mt-4 text-center text-sm text-gray-600 transition-all duration-1000 ease-out delay-500 ${
+                    isVisible 
+                        ? 'opacity-100 translate-y-0' 
+                        : 'opacity-0 translate-y-4'
+                }`}>
                     Desliza para ver más →
                 </div>
             )}

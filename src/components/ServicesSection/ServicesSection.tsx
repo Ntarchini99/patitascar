@@ -1,3 +1,5 @@
+import { useState, useEffect, useRef } from 'react';
+
 const serviceFeatures = [
     {
         title: "Transporte local y larga distancia",
@@ -29,21 +31,76 @@ const serviceFeatures = [
 ];
 
 const ServicesSection = () => {
+    const [isVisible, setIsVisible] = useState(false);
+    const sectionRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                } else {
+                    setIsVisible(false);
+                }
+            },
+            {
+                threshold: 0.1,
+                rootMargin: '50px 0px -50px 0px'
+            }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => {
+            if (sectionRef.current) {
+                observer.unobserve(sectionRef.current);
+            }
+        };
+    }, []);
+
     return (
-        <section className="w-full bg-[#f0bebe] py-16 px-4 lg:px-32" id="servicios">
-            <h2 className="[font-family:'Schoolbell',Helvetica] text-3xl text-center lg:text-left text-[#091133] mb-12">
+        <section 
+            ref={sectionRef}
+            className="w-full bg-[#f0bebe] py-16 px-4 lg:px-32" 
+            id="servicios"
+        >
+            <h2 className={`[font-family:'Schoolbell',Helvetica] text-3xl text-center lg:text-left text-[#091133] mb-12 transition-all duration-1000 ease-out ${
+                isVisible 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-8'
+            }`}>
                 Nuestros servicios
             </h2>
 
             <div className="flex flex-col lg:flex-row gap-12 items-start">
                 <div className="lg:w-1/2 space-y-6">
-                    <p className="text-base text-[#050007]">
+                    <p className={`text-base text-[#050007] transition-all duration-1000 ease-out delay-200 ${
+                        isVisible 
+                            ? 'opacity-100 translate-y-0' 
+                            : 'opacity-0 translate-y-8'
+                    }`}>
                         En Patitas Car, nos ocupamos de tu mascota con la dedicación y el cariño que se merece. Por eso, ofrecemos una variedad de servicios diseñados para garantizar su seguridad, comodidad y bienestar en cada viaje.
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         {serviceFeatures.map((feature, i) => (
-                            <div key={i}>
-                                <img src={feature.iconSrc} alt={feature.iconAlt} className="w-10 h-10 mb-2" />
+                            <div 
+                                key={i}
+                                className={`transition-all duration-1000 ease-out ${
+                                    isVisible 
+                                        ? 'opacity-100 translate-y-0' 
+                                        : 'opacity-0 translate-y-8'
+                                }`}
+                                style={{
+                                    transitionDelay: `${400 + (i * 150)}ms`
+                                }}
+                            >
+                                <img 
+                                    src={feature.iconSrc} 
+                                    alt={feature.iconAlt} 
+                                    className="w-10 h-10 mb-2" 
+                                />
                                 <h3 className="font-medium text-[#091133]">{feature.title}</h3>
                                 <p className="text-sm text-[#5d6970]">{feature.description}</p>
                             </div>
@@ -51,7 +108,11 @@ const ServicesSection = () => {
                     </div>
                 </div>
 
-                <div className="lg:w-1/2 flex justify-center">
+                <div className={`lg:w-1/2 flex justify-center transition-all duration-1200 ease-out delay-300 ${
+                    isVisible 
+                        ? 'opacity-100 translate-x-0 scale-100' 
+                        : 'opacity-0 translate-x-8 scale-95'
+                }`}>
                     <img
                         src="https://i.postimg.cc/52sRSjC3/Camioneta.png"
                         alt="Camioneta"

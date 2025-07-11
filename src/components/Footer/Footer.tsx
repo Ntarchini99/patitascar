@@ -5,7 +5,6 @@ const Footer = () => {
     <footer className="bg-gray-400 text-gray-700 py-6 shadow-inner">
       <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-6">
 
-        {/* Diseñado por */}
         <div className="text-sm text-center sm:text-left">
           Diseñado por{" "}
           <a
@@ -18,9 +17,8 @@ const Footer = () => {
           </a>
         </div>
 
-        {/* Redes y Teléfono */}
         <div className="flex flex-row items-center gap-6">
-          {/* Redes */}
+
           <div className="flex space-x-4">
             <a
               href="https://www.instagram.com/patitas_car/"
@@ -42,7 +40,6 @@ const Footer = () => {
             </a>
           </div>
 
-          {/* Teléfono */}
           <a
             href="tel:+5491123218193"
             aria-label="Teléfono"
@@ -53,7 +50,6 @@ const Footer = () => {
           </a>
         </div>
 
-        {/* Logo (oculto en móvil) */}
         <div className="hidden sm:flex justify-center sm:justify-end">
           <img
             src="https://i.postimg.cc/d3WbwxPp/Dise-o-sin-t-tulo-removebg-preview.png"
